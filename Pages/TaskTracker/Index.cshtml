@@ -1,0 +1,67 @@
+﻿@page
+@model OOPCapstone.Pages.TaskTracker.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<form>
+    <p>
+        Name: <input type="text" asp-for="SearchString" />
+        <input type="submit" value="filter" />
+    </p>
+</form>
+
+<table class="table" style="background-color:aquamarine">
+    <thead>
+        <tr>
+            <th></th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tasks[0].Name)
+            </th>
+            <th>
+                <a asp-page="./index" asp-route-sortOrder ="@Model.CompleteSort">
+                @Html.DisplayNameFor(model => model.Tasks[0].State)
+                </a>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tasks[0].Quantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tasks[0].Notes)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Tasks) {
+        <tr>
+            <td>
+            <button type="button" class="btn btn-success" id="myBtn" style="background-color:blue" onclick="increment()">Done</button>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.State)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Notes)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
