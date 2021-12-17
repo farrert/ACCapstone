@@ -5,6 +5,7 @@
 //document.getElementById("myBtn").addEventListener("click", function () {
 //    this.style.backgroundColor = "green";
 //});
+var clicked = true;
 function updateColor(btn) {
     btn.style.backgroundColor = 'green';
     btn.style.color = 'white';

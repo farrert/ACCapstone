@@ -42,7 +42,7 @@
 @foreach (var item in Model.Tasks) {
         <tr>
             <td>
-            <button type="button" class="btn btn-success" id="myBtn" style="background-color:blue" onclick="increment()">Done</button>
+            <button type="button" class="btn btn-success" id="myBtn" style="background-color:blue" onclick="completeTask(this)">Done</button>
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Name)

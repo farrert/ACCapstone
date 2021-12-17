@@ -12,12 +12,14 @@ namespace OOPCapstone.Models
         [Required]
         [StringLength(30, MinimumLength = 2)]
         public string Name { get; set; }
+        [Range(0,2)]
         public int TaskStateValue { get; set; }
         public TaskState State
         {
             get { return (TaskState)TaskStateValue; }
             set { TaskStateValue = (int)value; }
         }
+
         public int Quantity { get; set; }
         public string Description { get; set; }
         public string Notes { get; set; }

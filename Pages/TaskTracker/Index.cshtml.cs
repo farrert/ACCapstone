@@ -24,10 +24,6 @@ namespace OOPCapstone.Pages.TaskTracker
         [BindProperty(SupportsGet = true)]
         public string SearchString { get; set; }
         public string CompleteSort { get; set; }
-        public void increment(int TaskStateValue)
-        {
-            TaskStateValue++;
-        }
 
         public async Task OnGetAsync(string sortOrder)
         {
